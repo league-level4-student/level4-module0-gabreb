@@ -125,28 +125,28 @@ public class WorldPanel extends JPanel implements MouseListener, ActionListener 
 	public int getLivingNeighbors(int x, int y){
 		//y+1 for top row is bad! and so on
 		int neighbors = 0;
-		if (cells[x+1][y+1].isAlive) {
+		if (cells[x+1][y+1].isAlive && y > 0 && (x < (cellsPerRow-1))) {
 			neighbors +=1;
 		}
-		if (cells[x-1][y-1].isAlive) {
+		if (cells[x-1][y-1].isAlive && x > 0 && (y < (cellsPerRow-1))) {
 			neighbors+=1;
 		}
-		if (cells[x-1][y].isAlive) {
+		if (cells[x-1][y].isAlive && x > 0) {
 			neighbors+=1;
 		}
-		if (cells[x+1][y].isAlive) {
+		if (cells[x+1][y].isAlive && x < (cellsPerRow-1)) {
 			neighbors+=1;
 		}
-		if (cells[x][y+1].isAlive) {
+		if (cells[x][y+1].isAlive && y < (cellsPerRow-1)) {
 			neighbors+=1;
 		}
-		if (cells[x][y-1].isAlive) {
+		if (cells[x][y-1].isAlive && y > 0) {
 			neighbors+=1;
 		}
-		if (cells[x-1][y+1].isAlive) {
+		if (cells[x-1][y+1].isAlive && x > 0 && y < (cellsPerRow-1)) {
 			neighbors+=1;
 		}
-		if (cells[x+1][y-1].isAlive) {
+		if (cells[x+1][y-1].isAlive && y > 0 && x < (cellsPerRow-1)) {
 			neighbors+=1;
 		}
 		return neighbors;
