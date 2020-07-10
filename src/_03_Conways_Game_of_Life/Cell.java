@@ -44,11 +44,6 @@ public class Cell implements Drawable{
 	//    draws empty square if cell is dead
 	@Override
 	public void draw(Graphics g) {
-	
-		
-		
-		
-		
-		
+		g.drawRect(x, y, cellSize, cellSize);
 	}
 }
