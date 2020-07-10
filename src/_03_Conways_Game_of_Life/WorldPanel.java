@@ -123,7 +123,34 @@ public class WorldPanel extends JPanel implements MouseListener, ActionListener 
 	//   living neighbors there are of the 
 	//   cell identified by x and y
 	public int getLivingNeighbors(int x, int y){
-		return 0;
+		//y+1 for top row is bad! and so on
+		int neighbors = 0;
+		if (cells[x+1][y+1].isAlive) {
+			neighbors +=1;
+		}
+		if (cells[x-1][y-1].isAlive) {
+			neighbors+=1;
+		}
+		if (cells[x-1][y].isAlive) {
+			neighbors+=1;
+		}
+		if (cells[x+1][y].isAlive) {
+			neighbors+=1;
+		}
+		if (cells[x][y+1].isAlive) {
+			neighbors+=1;
+		}
+		if (cells[x][y-1].isAlive) {
+			neighbors+=1;
+		}
+		if (cells[x-1][y+1].isAlive) {
+			neighbors+=1;
+		}
+		if (cells[x+1][y-1].isAlive) {
+			neighbors+=1;
+		}
+		return neighbors;
+		
 	}
 
 	@Override
@@ -148,7 +175,18 @@ public class WorldPanel extends JPanel implements MouseListener, ActionListener 
 		//10. Use e.getX() and e.getY() to determine
 		//    which cell is clicked. Then toggle
 		//    the isAlive variable for that cell.
-		
+		for (int i = 0; i < cells.length; i++) {
+			for (int j = 0; j < cells[i].length; j++) {
+				if (i == (e.getX()/cellSize) && j == (e.getY()/cellSize)) {
+					if (cells[i][j].isAlive) {
+						cells[i][j].isAlive = false;
+					}
+					else {
+						cells[i][j].isAlive = true;
+					}
+				}
+			}
+		}
 		
 		
 		
