@@ -7,7 +7,7 @@ public class _00_2DArrayDemo {
 		
 		// array2d is an array of an array of ints. Or a 2D array.
 		int[][] array2d;
-		
+	
 		// A 2D array can be initialized with constant values like so:
 		int[][] newArray2d = {{1,2,3}, {4, 5, 6}, {7, 8, 9}};
 		

@@ -1,5 +1,10 @@
 package _02_Pixel_Art;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -13,6 +18,7 @@ public class GridInputPanel extends JPanel{
 	private JTextField rowsField;
 	private JTextField colsField;
 	private JButton submitButton;
+	
 			
 	PixelArtMaker pam;
 	
@@ -25,6 +31,7 @@ public class GridInputPanel extends JPanel{
 		colsField = new JTextField(5);
 		submitButton = new JButton("Submit");
 		
+		
 		add(new JLabel("screen width:"));
 		add(windowWidthField);
 		add(new JLabel("\tscreen height:"));
@@ -35,7 +42,9 @@ public class GridInputPanel extends JPanel{
 		add(colsField);
 		add(submitButton);
 		
+		
 		submitButton.addActionListener((e)->submit());
+		
 	}
 	
 	private void submit() {
@@ -63,6 +72,8 @@ public class GridInputPanel extends JPanel{
 			pam.submitGridData(w, h, r, c);
 		}
 	}
+	
+	
 	
 	private void invalidateInput() {
 		JOptionPane.showMessageDialog(null, "Be sure all fields are complete with positive numbers.", "ERROR", 0);
